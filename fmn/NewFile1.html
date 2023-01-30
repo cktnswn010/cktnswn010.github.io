@@ -5,6 +5,63 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<p>&nbsp;</p>
+<p><input id="maximum" type="hidden" value="7" /></p>
+<p>추가</p>
+<table class="table table-dark table-striped table-hover table-bordered">
+<tbody>
+<tr>
+<th scope="row">선수명</th>
+<td colspan="4"><input id="name" style="min-width: 200px; width: 50%;" type="text" /></td>
+</tr>
+<tr>
+<th style="min-width: 100px;">선수생일</th>
+<td colspan="4"><input id="birthM" style="min-width: 30px; width: 3%;" type="text" />월 <input id="birthD" style="min-width: 30px; width: 3%;" type="text" />일</td>
+</tr>
+<tr>
+<th style="min-width: 100px;">키</th>
+<td colspan="4"><input id="height" style="min-width: 30px; width: 3%;" type="text" /> CM ( 150 ~ 210 CM )</td>
+</tr>
+<tr>
+<th style="min-width: 100px;">몸무게</th>
+<td colspan="4"><input id="weight" style="min-width: 30px; width: 3%;" type="text" /> KG ( 55 ~ 120 KG )</td>
+</tr>
+<tr>
+<th>주발</th>
+<td colspan="2"><input name="Foot" type="radio" value="Left" />왼발 <input name="Foot" type="radio" value="Right" />오른발</td>
+<td><select style="min-width: 120px;" disabled="disabled">
+<option value="">--주발수치--</option>
+</select><input id="MainFootCnt" style="min-width: 50px; max-width: 100px;" disabled="disabled" max="20" min="5" type="number" value="0" /></td>
+<td><input id="setpieceText" disabled="disabled" type="text" /> <button id="setpieceReset">리셋</button></td>
+</tr>
+<tr>
+<th>정관장</th>
+<td><input id="jungGwanJang" type="checkbox" value="Y" /><label for="jungGwanJang">사용</label></td>
+<td colspan="3"><select id="jungGwanJangItem" disabled="disabled">
+<option value="-">-</option>
+<option value="+">+</option>
+</select><input id="jungGwanJangCnt" style="min-width: 50px; max-width: 100px;" disabled="disabled" max="7" min="0" type="number" value="0" /></td>
+</tr>
+<tr>
+<th>환생</th>
+<td><input id="reincarnation" type="checkbox" value="Y" /><label for="reincarnation">사용</label></td>
+<td><select id="reincarnationItem" disabled="disabled">
+<option value="3">3</option>
+<option value="2">2</option>
+<option value="1">1</option>
+</select></td>
+<td colspan="2"><label style="font-weight: bold;">환생통분 입력 : </label> <input id="reincarnationText" style="width: 300px;" disabled="disabled" type="text" /></td>
+</tr>
+<tr>
+<th>통합분배</th>
+<td><input id="fusionDivision" type="checkbox" value="Y" /><label for="fusionDivision">사용</label></td>
+<td style="min-width: 160px;">갯수 <input id="fusionDivisionCnt" style="min-width: 50px; max-width: 100px;" disabled="disabled" type="number" value="0" /></td>
+<td colspan="2"><label style="font-weight: bold;">분배내용 입력 : </label> <input id="inputText" disabled="disabled" type="text" /> <input id="fusionDivisionText" style="width: 500px;" disabled="disabled" type="text" /></td>
+</tr>
+<tr>
+<td colspan="5"><textarea id="result" style="width: 100%;" rows="10" placeholder="상점 갯수 초과하면 리셋 됩니다. 통분입력은 깎을꺼(-), 올릴꺼(+) 순으로 입력됩니다."></textarea> <button id="copy" class="btn btn-primary" style="width: 100%;">복사하기</button></td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
