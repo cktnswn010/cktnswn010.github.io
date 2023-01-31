@@ -68,18 +68,7 @@
      		document.getElementById("result").innerHTML += "포지션 변경 가능 여부 : " + $("input[name=change_pos]:checked").val()+'\n';
      		
      	}
-     	
-		function winPop(url, opts) {
-   
-		   var popupName = opts.name || 'popup';
-		   var options = '';
-		   options += 'width=' + (opts.width ? opts.width : 200) + ', height=' + (opts.height ? opts.height : 200);
-		   options += opts.left && opts.width ? ', left=' + opts.left : ', left=' + ( (screen.availWidth - opts.width) / 2);
-		   options += opts.top && opts.height ? ', top=' + opts.top : ', top=' + ( (screen.availHeight - opts.height) / 2);
-		   options += opts.scrollbars ? ', scrollbars=' + opts.scrollbars : ', scrollbars=no';
-		   options += opts.resizable ? ', resizable=' + opts.resizable : ', resizable=no';
-		   window.open(url, popupName, options);
-		}
+
 	</script>	
 	
 </html>

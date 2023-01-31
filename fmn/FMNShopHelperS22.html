@@ -7,8 +7,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
-
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+		
+		h1 {
+			font-family: 'Black Han Sans', sans-serif;
+		}
+		* {
+			font-family: 'Do Hyeon', sans-serif;
+		}
+	</style>
 	<body>
+		<h1 class="text-center">FMN S22 상점</h1>
         <input type="hidden" id="maximum" value="7">
 		<button id="btnPopup" class="btn btn-primary">스탯보기</button>
 		<button id="btnStat" class="btn btn-primary">능력치탭 바로가기</button>
@@ -56,6 +67,11 @@
 					</td>
 				</tr>
 				<tr>
+				<!-- 
+					
+					FMN S22 엔돌핀 수정 ( GK 능력치 추가 )
+				
+				 -->
 					<th>엔돌핀</th>
 					<td colspan="2">
 						<input type="checkbox" id="endorphin" value="Y"><label for="endorphin">사용</label>
@@ -68,7 +84,10 @@
 							<option value="승부욕">승부욕</option>
 							<option value="적극성">적극성</option>
 							<option value="천재성">천재성</option>
-							<option value="타고난 체력">타고난 체력</option>
+							<option value="팀워크">팀워크</option>
+							<option value="기행">(GK전용) 기행</option>
+							<option value="돌진">(GK전용) 돌진</option>
+							<option value="펀칭">(GK전용) 펀칭</option>
 						</select>
 						<input type="number" id="endorphinCnt" max="7" min="0" value="0" style="min-width:70px; max-width:150px;" disabled>
 						<button id="endorphinAdd">추가</button>
@@ -112,19 +131,65 @@
 						<input type="number" id="jungGwanJangCnt" max="7" min="0" value="0" style="min-width:50px; max-width:100px;" disabled>
 					</td>
 				</tr>
+				<!-- 
+				
+				FMN S22 신규 항목 - 천시의 축구교실 (스포츠맨십/더티플레이 +/-1) 200츄
+				
+				 -->
+				<tr>
+					<th>천시의 축구교실</th>
+					<td>
+						<input type="checkbox" id="FootballSchool" value="Y"><label for="FootballSchool">사용</label>
+					</td>
+					<td colspan="2">
+						<select id="FootballSchoolPM" disabled>
+							<option value="-">-</option>
+							<option value="+">+</option>
+						</select>
+						<select id="FootballSchoolItem" style="min-width:120px;" disabled>
+							<option value="">--선택--</option>
+							<option value="스포츠맨십">스포츠맨십</option>
+							<option value="더티플레이">더티플레이</option>
+						</select>
+						<input type="number" id="FootballSchoolCnt" max="7" min="0" value="0" style="min-width:50px; max-width:100px;" disabled>
+						<button id="FootballSchoolAdd">추가</button>
+					</td>
+					<td>
+						<input id="FootballSchoolText" disabled>
+						<button id="FootballSchoolReset">리셋</button>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>약발 훈련</th>
+					<td>
+						<input type="checkbox" id="Foot" value="Y"><label for="Foot">사용</label>
+					</td>
+					<td colspan="2">
+						<select id="FootPM" disabled>
+							<option value="-">-</option>
+							<option value="+">+</option>
+						</select>
+						<select id="FootItem" style="min-width:120px;" disabled>
+							<option value="">--선택--</option>
+							<option value="약발">약발</option>
+							<option value="주발변경">주발변경</option>
+						</select>
+						<input type="number" id="FootCnt" max="7" min="0" value="0" style="min-width:50px; max-width:100px;" disabled>
+						<button id="FootAdd">추가</button>
+					</td>
+					<td>
+						<input id="FootText" disabled>
+						<button id="FootReset">리셋</button>
+					</td>
+				</tr>								
+				
 				<tr>
 					<th>환생</th>
 					<td>
 						<input type="checkbox" id="reincarnation" value="Y"><label for="reincarnation">사용</label>
 					</td>
-					<td>
-						<select id="reincarnationItem" disabled>
-							<option value="3">3</option>
-							<option value="2">2</option>
-							<option value="1">1</option>
-						</select>
-					</td>
-					<td colspan="2">
+					<td colspan="3">
 						<label style="font-weight: bold;">환생통분 입력 : </label>
 						<input type="text" id="reincarnationText" style="width:300px;" disabled>
 					</td>
@@ -145,6 +210,17 @@
 					</td>
 				</tr>
 				<tr>
+					<th>도박</th>
+					<td>
+						<input type="checkbox" id="gemble" value="Y"><label for="gemble">사용</label>
+					</td>
+					<td colspan="3" style="min-width:160px;">
+						갯수
+						<input type="number" id="gembleCnt" value="0" style="min-width:50px; max-width:100px;" disabled>
+						<button id="gembleAdd">추가</button>
+					</td>
+				</tr>				
+				<tr>
 					<td colspan="5">
 						<textarea id="result" rows="10" style="width:100%;" placeholder="상점 갯수 초과하면 리셋 됩니다. 통분입력은 깎을꺼(-), 올릴꺼(+) 순으로 입력됩니다."></textarea>
 						<button id="copy" class="btn btn-primary" style="width:100%;">복사하기</button>
@@ -156,6 +232,9 @@
 	<script type="text/javascript">
 		var endorphinCount = 0;
 		var setpieceCount  = 0;
+		var footballschoolCount  = 0;
+		var footCount  = 0;
+		var gembleCount  = 0;
         var minus = true;
         var fusionUseCnt = 1;
         var fusionFinish = false;
@@ -268,9 +347,6 @@
             }
         });
 
-
-
-
 		$("#tutoring").on("click", function() {
 			if($("#tutoring").is(":checked")){
 				$("#tutorItem").prop("disabled", false);
@@ -310,6 +386,30 @@
 				$("#jungGwanJangCnt").prop("disabled", true);
 			}
 		});
+		
+		$("#FootballSchool").on("click", function() {
+			if($("#FootballSchool").is(":checked")){
+				$("#FootballSchoolItem").prop("disabled", false);
+				$("#FootballSchoolCnt").prop("disabled", false);
+				$("#FootballSchoolPM").prop("disabled", false);
+			} else {
+				$("#FootballSchoolItem").prop("disabled", true);
+				$("#FootballSchoolCnt").prop("disabled", true);
+				$("#FootballSchoolPM").prop("disabled", false);
+			}
+		});	
+		
+		$("#Foot").on("click", function() {
+			if($("#Foot").is(":checked")){
+				$("#FootItem").prop("disabled", false);
+				$("#FootCnt").prop("disabled", false);
+				$("#FootPM").prop("disabled", false);
+			} else {
+				$("#FootItem").prop("disabled", true);
+				$("#FootCnt").prop("disabled", true);
+				$("#FootPM").prop("disabled", false);
+			}
+		});			
 
 		$("#reincarnation").on("click", function() {
 			if($("#reincarnation").is(":checked")){
@@ -343,6 +443,15 @@
 			}
 		});
 		
+
+		$("#gemble").on("click", function() {
+			if($("#gemble").is(":checked")){
+				$("#gembleCnt").prop("disabled", false);
+			} else {
+				$("#gembleCnt").prop("disabled", false);
+			}
+		});		
+		
 		$("#endorphinAdd").on("click", function() {
 			endorphinCount += Number($("#endorphinCnt").val());
             if(!storeBuyCountCheck()) {
@@ -370,7 +479,45 @@
 					
 			resultSetting();
 		});
+		
+		
+		$("#FootballSchoolAdd").on("click", function() {
+            footballschoolCount += Number($("#FootballSchoolCnt").val());
+            if(!storeBuyCountCheck()) {
+            	footballschoolCount -= Number($("#FootballSchoolCnt").val());
+                return false;
+            }
 
+			var FootballSchoolText = $("#FootballSchoolText").val() + " ";
+			FootballSchoolText += $("#FootballSchoolItem").val() + $("#FootballSchoolPM").val() + $("#FootballSchoolCnt").val();
+			$("#FootballSchoolText").val(FootballSchoolText);
+					
+			resultSetting();
+		});
+		
+		$("#FootAdd").on("click", function() {
+            footCount += Number($("#FootCnt").val());
+            if(!storeBuyCountCheck()) {
+            	footCount -= Number($("#FootCnt").val());
+                return false;
+            }
+
+			var FootText = $("#FootText").val() + " ";
+			FootText += $("#FootItem").val() + $("#FootPM").val() + $("#FootCnt").val();
+			$("#FootText").val(FootText);
+					
+			resultSetting();
+		});		
+		
+		$("#gembleAdd").on("click", function() {
+            gembleCount += Number($("#gembleCnt").val());
+            if(!storeBuyCountCheck()) {
+            	gembleCount -= Number($("#gembleCnt").val());
+                return false;
+            }
+			resultSetting();
+		});		
+		
 		$("#endorphinReset").on("click", function() {
 			$("#endorphinText").val("");
 			endorphinCount = 0;
@@ -382,6 +529,17 @@
 			setpieceCount = 0;
 			resultSetting();
 		});
+		
+		$("#FootballSchoolReset").on("click", function() {
+			$("#FootballSchoolText").val("");
+			setpieceCount = 0;
+			resultSetting();
+		});
+		$("#FootReset").on("click", function() {
+			$("#FootText").val("");
+			setpieceCount = 0;
+			resultSetting();
+		});		
 
 		$("#tutorItem").change(function(){
             if(!storeBuyCountCheck()) {
@@ -424,24 +582,34 @@
 			resultText += $("#name").val() + "\n";
 			
 			if($("#steroid").is(":checked")) {
-				resultText += "스테로이드 어빌+3 300p\n";
+				resultText += "스테로이드 어빌+2 300츄르\n";
 				totalPay += 300;
 			}
 			
 			if($("#tutoring").is(":checked")) {
-				resultText += "튜터링 " + $("#tutorItem").val() + $("#tutoringMinusPlus").val() + "1 300p\n";
+				resultText += "튜터링 " + $("#tutorItem").val() + $("#tutoringMinusPlus").val() + "1 300츄르\n";
 				totalPay += 300;
 			}
 
 			if($("#endorphin").is(":checked")) {
-				resultText += "엔돌핀" + endorphinCount + $("#endorphinText").val() + " " + (Number(endorphinCount) * 200) + "p\n";
+				resultText += "엔돌핀" + endorphinCount + $("#endorphinText").val() + " " + (Number(endorphinCount) * 200) + "츄르\n";
 				totalPay += Number(endorphinCount) * 200;
 			}
 
 			if($("#setpiece").is(":checked")) {
-				resultText += "세트피스" + setpieceCount + $("#setpieceText").val() + " " + (Number(setpieceCount) * 200) + "p\n";
+				resultText += "세트피스" + setpieceCount + $("#setpieceText").val() + " " + (Number(setpieceCount) * 200) + "츄르\n";
 				totalPay += Number(setpieceCount) * 200;
 			}
+			
+			if($("#FootballSchool").is(":checked")) {
+				resultText += "천시의 축구교실" + footballschoolCount + $("#FootballSchoolText").val() + " " + (Number(footballschoolCount) * 200) + "츄르\n";
+				totalPay += Number(footballschoolCount) * 200;
+			}
+			
+			if($("#Foot").is(":checked")) {
+				resultText += "약발훈련" + footCount + $("#FootText").val() + " " + (Number(footCount) * 200) + "츄르\n";
+				totalPay += Number(footCount) * 200;
+			}			
 
 			if($("#jungGwanJang").is(":checked")) {
 				resultText += "정관장" + $("#jungGwanJangCnt").val() + " 부상빈도" + $("#jungGwanJangItem").val() + $("#jungGwanJangCnt").val() + " " + (Number($("#jungGwanJangCnt").val()) * 200) + "p \n";
@@ -449,23 +617,19 @@
 			}
 
 			if($("#reincarnation").is(":checked")) {
-				let reincarnationItem = $("#reincarnationItem").val();
-				resultText += "환생"+reincarnationItem;
-				if(reincarnationItem == "1") {
-					resultText += " 어빌-11 포텐+7 통분4 " + $("#reincarnationText").val() + " 800p\n";
-					totalPay += 800; 
-				} else if(reincarnationItem == "2") {
-					resultText += " 어빌-15 포텐+10 통분5 " + $("#reincarnationText").val() + " 1000p\n";
-					totalPay += 1000;
-				} else if(reincarnationItem == "3") {
-					resultText += " 어빌-19 포텐+13 통분7 " + $("#reincarnationText").val() + " 1400p\n";
-					totalPay += 1400;
-				}
+				
+				resultText += "환생";
+				resultText += " 어빌-3 포텐+5 통분3 " + $("#reincarnationText").val() + " 1000츄르\n";
+				totalPay += 1000; 
+				
 			}
-			
+			if($("#gemble").is(":checked")) {
+				resultText += "도박" + gembleCount + " " + (Number(gembleCount) * 700) + "츄르\n";
+				totalPay += Number(footCount) * 700;
+			}				
 				
 			if($("#fusionDivision").is(":checked")) {
-				resultText += "통합분배" + $("#fusionDivisionCnt").val() + " " + $("#fusionDivisionText").val() + " " + (Number($("#fusionDivisionCnt").val()) * 100) + "p\n\n";
+				resultText += "통합분배" + $("#fusionDivisionCnt").val() + " " + $("#fusionDivisionText").val() + " " + (Number($("#fusionDivisionCnt").val()) * 100) + "츄르\n\n";
 				totalPay += Number($("#fusionDivisionCnt").val()) * 100;
 			}
 			
@@ -490,6 +654,12 @@
 			}
 			if($("#setpiece").is(":checked")) {
 				totalBuyCount += Number(setpieceCount);
+			}
+			if($("#FootballSchool").is(":checked")) {
+				totalBuyCount += Number(footballschoolCount);
+			}
+			if($("#Foot").is(":checked")) {
+				totalBuyCount += Number(footCount);
 			}
 			if($("#jungGwanJang").is(":checked")) {
 				totalBuyCount += Number($("#jungGwanJangCnt").val());

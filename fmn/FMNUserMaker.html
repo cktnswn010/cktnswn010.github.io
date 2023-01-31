@@ -87,10 +87,7 @@
 				<tr>
 					<th>주요스탯</th>
 					<td colspan="4">
-						<!--input type="text" id="Mstatus" style="min-width:200px; width:50%;"-->
-						<!--select id="stat1" style="min-width: 20px;"> </select--> 
-						<!--<input type="text" list="stat1" id="stat1">-->
-						스탯1 : <select id="stat1" style="min-width: 20px;" onchange="check_stat()"></select>
+						스탯1 : <select id="stat1" style="min-width: 20px;"></select>
 						수치 : <select id="Stat1Cnt" style="min-width: 20px;"></select>
 					</br>
 						스탯2 : <select id="stat2" style="min-width: 20px;"> </select> 
@@ -178,42 +175,7 @@
 							"<option value='지구력'>지구력</option>"+
 							"<option value='타고난 체력'>타고난 체력</option>"
 							
-		/*					
-		var selectStatOptF = "<option value='개인기'>개인기</option>"+
-							"<option value='골 결정력'>골 결정력</option>"+
-							"<option value='드리블'>드리블</option>"+
-							"<option value='일대일마크'>일대일마크</option>"+
-							"<option value='장거리 스로인'>장거리 스로인</option>"+
-							"<option value='중거리 슛'>중거리 슛</option>"+
-							"<option value='코너킥'>코너킥</option>"+
-							"<option value='크로스'>크로스</option>"+
-							"<option value='태클'>태클</option>"+
-							"<option value='패스'>패스</option>"+
-							"<option value='퍼스트 터치'>퍼스트 터치</option>"+
-							"<option value='페널티킥'>페널티킥</option>"+
-							"<option value='프리킥'>프리킥</option>"+
-							"<option value='헤더'>헤더</option>"+
-							"<option value='대담성'>대담성</option>"+
-							"<option value='리더십'>리더십</option>"+
-							"<option value='수비 위치 선정'>수비 위치 선정</option>"+
-							"<option value='시야'>시야</option>"+
-							"<option value='예측력'>예측력</option>"+
-							"<option value='오프 더 볼'>오프 더 볼</option>"+
-							"<option value='적극성'>적극성</option>"+
-							"<option value='집중력'>집중력</option>"+
-							"<option value='천재성'>천재성</option>"+
-							"<option value='침착성'>침착성</option>"+
-							"<option value='팀워크'>팀워크</option>"+
-							"<option value='판단력'>판단력</option>"+
-							"<option value='활동량'>활동량</option>"+
-							"<option value='가속도'>가속도</option>"+
-							"<option value='균형 감각'>균형 감각</option>"+
-							"<option value='몸싸움'>몸싸움</option>"+
-							"<option value='민첩성'>민첩성</option>"+
-							"<option value='점프 거리'>점프 거리</option>"+
-							"<option value='주력'>주력</option>"+
-							"<option value='지구력'>지구력</option>"+
-							"<option value='타고난 체력'>타고난 체력</option>"*/
+
 		$(document).ready(function(){
 			$(".pos_GK").click(function(){
 				if(this.checked){
@@ -239,45 +201,7 @@
 			$("#stat3").select2();
 			$("#stat4").select2();
 			$("#stat5").select2();
-			
-			/*
-			$(".pos_field1").click(function(){
-				if(this.checked){
-					$(".pos_field4").prop("disabled",true);
-					$(".pos_field5").prop("disabled",true);
-				}
-				else{
-					$(".pos_field4").prop("disabled",false);
-					$(".pos_field5").prop("disabled",false);
-				}
-			});						
-			$(".pos_field2").click(function(){
-				if(this.checked){
-					$(".pos_field5").prop("disabled",true);
-				}
-				else{
-					$(".pos_field5").prop("disabled",false);
-				}
-			});						
-			$(".pos_field5").click(function(){
-				if(this.checked){
-					$(".pos_field1").prop("disabled",true);
-					$(".pos_field2").prop("disabled",true);
-				}
-				else{
-					$(".pos_field1").prop("disabled",false);
-					$(".pos_field2").prop("disabled",false);
-				}
-			});						
-			$(".pos_field4").click(function(){
-				if(this.checked){
-					$(".pos_field1").prop("disabled",true);
-				}
-				else{
-					$(".pos_field1").prop("disabled",false);
-				}
-			});	
-			*/			
+		
     	});
 		
 		// #1 About Foot Start
@@ -378,18 +302,7 @@
      		})
      		document.getElementById("result").innerHTML += "포지션 : "+result2+'\n';
      	}
-        
-		function winPop(url, opts) {
-   
-		   var popupName = opts.name || 'popup';
-		   var options = '';
-		   options += 'width=' + (opts.width ? opts.width : 200) + ', height=' + (opts.height ? opts.height : 200);
-		   options += opts.left && opts.width ? ', left=' + opts.left : ', left=' + ( (screen.availWidth - opts.width) / 2);
-		   options += opts.top && opts.height ? ', top=' + opts.top : ', top=' + ( (screen.availHeight - opts.height) / 2);
-		   options += opts.scrollbars ? ', scrollbars=' + opts.scrollbars : ', scrollbars=no';
-		   options += opts.resizable ? ', resizable=' + opts.resizable : ', resizable=no';
-		   window.open(url, popupName, options);
-		}
+
 	</script>	
 	
 </html>
