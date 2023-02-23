@@ -1,0 +1,308 @@
+<html lang="ko">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+		
+		h1 {
+			font-family: 'Black Han Sans', sans-serif;
+		}
+		* {
+			font-family: 'Do Hyeon', sans-serif;
+		}
+	</style>
+	
+	<body>
+		<h1 class="text-center">FMN 신규 선수 신청</h1>
+        <table class="table table-Primary table-striped table-hover table-bordered">
+			<tbody>
+				<tr>
+					<th scope="row">선수명</th>
+					<td colspan="4">
+						<input type="text" id="name" style="min-width:200px; width:50%;">
+					</td>
+				</tr>
+				<tr>
+					<th style="min-width: 100px;">선수생일</th>
+					<td colspan="4">
+						<select id="birthM" style="min-width: 20px;"><option value=""></option><</select>월 
+						<select id="birthD" style="min-width: 20px;"><option value=""></option><</select>일
+					</td>
+				</tr>
+				<tr>
+					<th style="min-width:100px;">키</th>
+					<td colspan="4">
+						 <select id="height" style="min-width: 20px;"><option value=""></option><</select> CM 
+					</td>
+				</tr>
+				<tr>
+					<th style="min-width:100px;">몸무게</th>
+					<td colspan="4">
+						<select id="weight" style="min-width: 20px;"><option value=""></option><</select> KG
+					</td>
+				</tr>
+				<tr>
+					<th>발수치</th>
+					<td colspan="4">
+						왼발<select id="LFootCnt" style="min-width: 20px;"><option value=""></option></select> 
+						오른발<select id="RFootCnt" style="min-width: 20px;"><option value=""></option></select>
+					</td>
+				</tr>
+				<tr>
+					<th>포지션</th>
+					<td colspan="4" style="padding-top: 1px;padding-bottom: 1px;">
+						<table class="table table-Info table-striped table-hover table-bordered" border=3 >
+							<tbody align="center">
+								<tr>
+									<td></td> <td><input type="checkbox" id="ST" value="ST" name="cb" class="pos_field pos_field1"/><label for='ST'>ST</label></td> <td></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" id="AML" value="AML" name="cb" class="pos_field pos_field2"/><label for='AML'>AML</label></td> <td><input type="checkbox" id="AMC" value="AMC" name="cb" class="pos_field pos_field2"/><label for='AMC'>AMC</label></td> <td><input type="checkbox" id="AMR" value="AMR" name="cb" class="pos_field pos_field2"/><label for='AMR'>AMR</label></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" id="ML" value="ML" name="cb" class="pos_field pos_field3"/><label for='ML'>ML</label></td> <td><input type="checkbox" id="MC" value="MC" name="cb" class="pos_field pos_field3"/><label for='MC'>MC</label></td> <td><input type="checkbox" id="MR" value="MR" name="cb" class="pos_field pos_field3"/><label for='MR'>MR</label></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" id="WBL" value="WBL" name="cb" class="pos_field pos_field4"/><label for='WBL'>WBL</label></td> <td><input type="checkbox" id="DM" value="DM" name="cb" class="pos_field pos_field4"/><label for='DM'>DM</label></td> <td><input type="checkbox" id="WBR" value="WBR" name="cb" class="pos_field pos_field4"/><label for='WBR'>WBR</label></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" id="DL" value="DL" name="cb" class="pos_field pos_field5"/><label for='DL'>DL</label></td> <td><input type="checkbox" id="DC" value="DC" name="cb" class="pos_field pos_field5"/><label for='DC'>DC</label></td> <td><input type="checkbox" id="DR" value="DR" name="cb" class="pos_field pos_field5"/><label for='DR'>DR</label></td>
+								</tr>
+								<tr>
+									<td></td> <td><input type="checkbox" id="GK" value="GK" name="cb" class="pos_GK"/><label for='GK'>GK</label></td> <td></td>
+								</tr>
+							</tbody>					
+						</table>	
+					</td>
+				</tr>
+				<tr>
+					<th>주요스탯</th>
+					<td colspan="4">
+						스탯1 : <select id="stat1" style="min-width: 20px;"></select>
+						수치 : <select id="Stat1Cnt" style="min-width: 20px;"></select>
+					</br>
+						스탯2 : <select id="stat2" style="min-width: 20px;"> </select> 
+						수치 : <select id="Stat2Cnt" style="min-width: 20px;"></select>
+					</br>
+						스탯3 : <select id="stat3" style="min-width: 20px;"> </select> 
+						수치 : <select id="Stat3Cnt" style="min-width: 20px;"></select>
+					</br>
+						스탯4 : <select id="stat4" style="min-width: 20px;"> </select> 
+						수치 : <select id="Stat4Cnt" style="min-width: 20px;"></select>
+					</br>
+						스탯5 : <select id="stat5" style="min-width: 20px;"> </select> 
+						수치 : <select id="Stat5Cnt" style="min-width: 20px;"></select>	
+					</td>
+				</tr>
+				<tr>
+					<th>포지션 변경 가능 여부</th>
+					<td colspan="4">
+						<input type="radio" name="change_pos" id="O" value="가능" style="min-width:20px;"><label for='O'>가능</label>
+						<input type="radio" name="change_pos" id="X" value="불가능" style="min-width:20px;"><label for='X'>불가능</label>
+					</td>
+				</tr>
+				<tr>
+					<th>추천인</th>
+					<td colspan="4">
+						<input type="text" id="recommend" placeholder ="추천인 없을 경우 공백"style="min-width:200px; width:50%;">
+					</td>
+				</tr>				
+				
+				<tr>
+					<td colspan="5">
+						<textarea id="result" name="textarea" rows="9" style="width:100%;" placeholder="" readonly></textarea>
+						<button id="copy" class="btn btn-primary" style="width:100%;" onclick="make_text()">복사본 생성하기</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script type="text/javascript">
+	    
+		var selectStatOpt = "<option value='1:1방어'>(GK)1:1방어</option>"+
+							"<option value='골킥'>(GK)골킥</option>"+
+							"<option value='공 던지기'>(GK)공 던지기</option>"+
+							"<option value='공중 장악력'>(GK)공중 장악력</option>"+
+							"<option value='기행'>(GK)기행</option>"+
+							"<option value='돌진(빈도)'>(GK)돌진(빈도)</option>"+
+							"<option value='반사 신경'>(GK)반사 신경</option>"+
+							"<option value='볼 핸드링'>(GK)볼 핸드링</option>"+
+							"<option value='수비 조율'>(GK)수비 조율</option>"+
+							"<option value='펀칭(빈도)'>(GK)펀칭(빈도)</option>"+
+							"<option value='패널티 박스 장악력'>(GK)패널티 박스 장악력</option>"+
+							"<option value='개인기'>개인기</option>"+
+							"<option value='골 결정력'>골 결정력</option>"+
+							"<option value='드리블'>드리블</option>"+
+							"<option value='일대일마크'>일대일마크</option>"+
+							"<option value='장거리 스로인'>장거리 스로인</option>"+
+							"<option value='중거리 슛'>중거리 슛</option>"+
+							"<option value='코너킥'>코너킥</option>"+
+							"<option value='크로스'>크로스</option>"+
+							"<option value='태클'>태클</option>"+
+							"<option value='패스'>패스</option>"+
+							"<option value='퍼스트 터치'>퍼스트 터치</option>"+
+							"<option value='페널티킥'>페널티킥</option>"+
+							"<option value='프리킥'>프리킥</option>"+
+							"<option value='헤더'>헤더</option>"+
+							"<option value='대담성'>대담성</option>"+
+							"<option value='리더십'>리더십</option>"+
+							"<option value='수비 위치 선정'>수비 위치 선정</option>"+
+							"<option value='시야'>시야</option>"+
+							"<option value='예측력'>예측력</option>"+
+							"<option value='오프 더 볼'>오프 더 볼</option>"+
+							"<option value='적극성'>적극성</option>"+
+							"<option value='집중력'>집중력</option>"+
+							"<option value='천재성'>천재성</option>"+
+							"<option value='침착성'>침착성</option>"+
+							"<option value='팀워크'>팀워크</option>"+
+							"<option value='판단력'>판단력</option>"+
+							"<option value='활동량'>활동량</option>"+
+							"<option value='가속도'>가속도</option>"+
+							"<option value='균형 감각'>균형 감각</option>"+
+							"<option value='몸싸움'>몸싸움</option>"+
+							"<option value='민첩성'>민첩성</option>"+
+							"<option value='점프 거리'>점프 거리</option>"+
+							"<option value='주력'>주력</option>"+
+							"<option value='지구력'>지구력</option>"+
+							"<option value='타고난 체력'>타고난 체력</option>"
+							
+
+		$(document).ready(function(){
+			$(".pos_GK").click(function(){
+				if(this.checked){
+					$(".pos_field").prop("disabled",true);
+				}
+				else{
+					$(".pos_field").prop("disabled",false);
+				}
+			});
+			$(".pos_field").click(function(){
+				if(this.checked){
+					$(".pos_GK").prop("disabled",true);
+				}
+				else{
+					$(".pos_GK").prop("disabled",false);
+				}
+			});		
+			
+
+
+			$("#stat1").select2();
+			$("#stat2").select2();
+			$("#stat3").select2();
+			$("#stat4").select2();
+			$("#stat5").select2();
+		
+    	});
+		
+		// #1 About Foot Start
+		var selectFootCntMin = 5;
+		var selectFootCntMax = 20;
+		var selectFootOpt = "";
+		
+        for (var FootCnt = selectFootCntMin; FootCnt<=selectFootCntMax; FootCnt++){
+        	selectFootOpt += "<option>"+FootCnt+"</option>";
+        }
+        document.getElementById("LFootCnt").innerHTML = selectFootOpt;
+        document.getElementById("RFootCnt").innerHTML = selectFootOpt;
+     	// About Foot End
+     	
+     	// #2 About Birth Start
+     	var selectBirthMOpt = "";
+     	var selectBirthDOpt = "";     	
+     	
+        for (var BirthMOpt = 1; BirthMOpt<=12; BirthMOpt++){
+        	selectBirthMOpt += "<option>"+BirthMOpt+"</option>";
+        }        
+        document.getElementById("birthM").innerHTML = selectBirthMOpt;
+        
+        for (var BirthDOpt = 1; BirthDOpt<=31; BirthDOpt++){
+        	selectBirthDOpt += "<option>"+BirthDOpt+"</option>";	
+        	
+        }
+        document.getElementById("birthD").innerHTML = selectBirthDOpt;
+     	// About Birth End
+     	
+     	// #3 About height Start
+     	var selectHOpt = "";
+     	
+        for (var HOpt = 150; HOpt<=210; HOpt++){
+        	selectHOpt += "<option>"+HOpt+"</option>";
+        }        
+        document.getElementById("height").innerHTML = selectHOpt;
+     	// About height End
+     
+     	// #4 About weight Start
+     	var selectWOpt = "";
+     	
+        for (var WOpt = 55; WOpt<=120; WOpt++){
+        	selectWOpt += "<option>"+WOpt+"</option>";
+        }        
+        document.getElementById("weight").innerHTML = selectWOpt;
+     	// About height End     
+     
+		// #1 About Stat Start
+
+	    document.getElementById("stat1").innerHTML = selectStatOpt;
+		document.getElementById("stat2").innerHTML = selectStatOpt;
+		document.getElementById("stat3").innerHTML = selectStatOpt;
+		document.getElementById("stat4").innerHTML = selectStatOpt;
+		document.getElementById("stat5").innerHTML = selectStatOpt;
+		
+		var selectStatCntMin = 5;
+		var selectStatCntMax = 15;
+		var selectStatCntOpt = "";
+		
+        for (var StatCnt = selectStatCntMin; StatCnt<=selectStatCntMax; StatCnt++){
+        	selectStatCntOpt += "<option>"+StatCnt+"</option>";
+        }
+        document.getElementById("Stat1Cnt").innerHTML = selectStatCntOpt;
+		document.getElementById("Stat2Cnt").innerHTML = selectStatCntOpt;
+		document.getElementById("Stat3Cnt").innerHTML = selectStatCntOpt;
+		document.getElementById("Stat4Cnt").innerHTML = selectStatCntOpt;
+		document.getElementById("Stat5Cnt").innerHTML = selectStatCntOpt;
+        
+     	// About Stat End	 
+     
+     
+     	function make_text(){
+     		var blank_chk = $('textarea[name=textarea]').text();
+     			
+     		if(blank_chk != ''){
+     			$("textarea[name=textarea]").text("");
+     			
+     		}
+     		document.getElementById("result").innerHTML += "선수명 : " + $("#name").val()+'\n';
+     		document.getElementById("result").innerHTML += "선수생일 : " + $("#birthM option:selected").val()+'월 '+$("#birthD option:selected").val()+'일\n';
+     		document.getElementById("result").innerHTML += "키 : " + $("#height option:selected").val()+'Cm \n';
+     		document.getElementById("result").innerHTML += "몸무게 : " + $("#weight option:selected").val()+'Kg \n';
+     		document.getElementById("result").innerHTML += "발수치 : 왼발 " + $("#LFootCnt option:selected").val()+' / 오른발 '+$("#RFootCnt option:selected").val()+'\n';
+     		Position_check();
+     		document.getElementById("result").innerHTML += "주요스탯 : " + $("#stat1 option:selected").val()+" - "+$("#Stat1Cnt option:selected").val()+" / "+$("#stat2 option:selected").val()+" - "+$("#Stat2Cnt option:selected").val()+" / "+$("#stat3 option:selected").val()+" - "+$("#Stat3Cnt option:selected").val()+" / "+$("#stat4 option:selected").val()+" - "+$("#Stat4Cnt option:selected").val()+" / "+$("#stat5 option:selected").val()+" - "+$("#Stat5Cnt option:selected").val()+'\n';
+     		document.getElementById("result").innerHTML += "포지션 변경 가능 여부 : " + $("input[name=change_pos]:checked").val()+'\n';
+     		
+     	}
+     	
+     	function Position_check(){
+     		const query = 'input[name="cb"]:checked';
+     		const selectedEls = document.querySelectorAll(query);
+     		
+     		let result2 ='';
+     		selectedEls.forEach((el) => {
+     			result2 += el.value + ' ';
+     		})
+     		document.getElementById("result").innerHTML += "포지션 : "+result2+'\n';
+     	}
+
+	</script>	
+	
+</html>
