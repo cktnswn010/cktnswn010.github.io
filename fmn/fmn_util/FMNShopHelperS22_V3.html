@@ -262,10 +262,13 @@
 							<td>
 								<input type="checkbox" id="gemble" value="Y"><label for="gemble">사용</label>
 							</td>
-							<td colspan="3" style="min-width:160px;">
+							<td colspan="1" style="min-width:160px;">
 								갯수
 								<input type="number" id="gembleCnt" value="0" style="min-width:50px; max-width:100px;" disabled>
 								<button id="gembleAdd">추가</button>
+							</td>
+							<td colspan="2">
+								<button id="GambleReset">리셋</button>
 							</td>
 						</tr>				
 						<tr>
@@ -576,18 +579,28 @@
 
 		$("#setpieceReset").on("click", function() {
 			$("#setpieceText").val("");
+			//$("#setpiece").prop("checked",false);
 			setpieceCount = 0;
 			resultSetting();
 		});
 		
 		$("#FootballSchoolReset").on("click", function() {
 			$("#FootballSchoolText").val("");
-			setpieceCount = 0;
+			//$("#FootballSchool").prop("checked",false);
+			footballschoolCount = 0;
 			resultSetting();
 		});
 		$("#FootReset").on("click", function() {
 			$("#FootText").val("");
-			setpieceCount = 0;
+			//$("#Foot").prop("checked",false);
+			footCount = 0;
+			resultSetting();
+		});
+		
+		$("#GambleReset").on("click", function() {
+			$("#gembleCnt").val("0");
+			//$("#gemble").prop("checked",false);
+			gembleCount = 0;
 			resultSetting();
 		});		
 
@@ -676,7 +689,7 @@
 			} 
 			if($("#gemble").is(":checked")) {
 				resultText += "도박" + gembleCount + " " + (Number(gembleCount) * 700) + "츄르\n";
-				totalPay += Number(footCount) * 700;
+				totalPay += Number(gembleCount) * 700;
 			}				
 				
 			if($("#fusionDivision").is(":checked")) {
@@ -711,6 +724,9 @@
 			}
 			if($("#Foot").is(":checked")) {
 				totalBuyCount += Number(footCount);
+			}
+			if($("#gemble").is(":checked")) {
+				totalBuyCount += Number(gembleCount);
 			}
 			if($("#jungGwanJang").is(":checked")) {
 				totalBuyCount += Number($("#jungGwanJangCnt").val());
