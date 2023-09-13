@@ -88,7 +88,7 @@
 						<tr>
 							<th style="min-width:100px;">튜터링</th>
 							<td class="col-sm-1" style="min-width:70px;">
-								<input type="checkbox" id="tutoring" value="Y" checked><label for="tutoring">사용</label>
+								<input type="checkbox" id="tutoring" value="Y"><label for="tutoring">사용</label>
 							</td>
 							<td>
 								<select id="tutoringMinusPlus">
@@ -96,7 +96,8 @@
 									<option value="-">-</option>
 								</select>
 							</td>
-							<td colspan="2">
+							<!-- td colspan="2" -->
+							<td>
 								<select id="tutorItem" style="min-width:120px;">
 									<option value="">--선택--</option>
 									<option value="프로의식">프로의식</option>
@@ -112,6 +113,15 @@
 									<option value="다재다능">다재다능</option>
 									<option value="논쟁성">논쟁성</option>
 								</select>
+								<!-- 
+									S25 추가, 갯수 2개 로 수정되면서 추가								
+								 -->
+								 <input type="number" id="tutoringCnt" max="2" min="0" value="0" style="min-width:70px; max-width:150px;" disabled>
+								<button id="tutoringAdd">추가</button>
+							</td>
+							<td colspan="2">
+								<input id="tutoringText" disabled>
+								<button id="tutoringReset">리셋</button>
 							</td>
 						</tr>
 						<tr>
@@ -291,6 +301,7 @@
 	</body>
 	<script type="text/javascript">
 		var endorphinCount = 0;
+		var tutoringCount = 0;
 		var setpieceCount  = 0;
 		var footballschoolCount  = 0;
 		var footCount  = 0;
@@ -411,6 +422,7 @@
 			if($("#tutoring").is(":checked")){
 				$("#tutorItem").prop("disabled", false);
 				$("#tutoringMinusPlus").prop("disabled", false);
+				$("#tutoringCnt").prop("disabled", false);
 			} else {
 				$("#tutorItem").prop("disabled", true);
 				$("#tutoringMinusPlus").prop("disabled", true);
@@ -512,6 +524,21 @@
 			}
 		});		
 		
+
+		$("#tutoringAdd").on("click", function() {
+			tutoringCount += Number($("#tutoringCnt").val());
+            if(!storeBuyCountCheck()) {
+            	tutoringCount -= Number($("#tutoringCnt").val());
+                return false;
+            }
+
+			var tutoringText = $("#tutoringText").val() + " ";
+			tutoringText += $("#tutorItem").val() + $("#tutoringMinusPlus").val() + $("#tutoringCnt").val();
+			$("#tutoringText").val(tutoringText);
+					
+			resultSetting();
+		});
+		
 		$("#endorphinAdd").on("click", function() {
 			endorphinCount += Number($("#endorphinCnt").val());
             if(!storeBuyCountCheck()) {
@@ -577,6 +604,12 @@
             }
 			resultSetting();
 		});		
+		
+		$("#tutoringReset").on("click", function() {
+			$("#tutoringText").val("");
+			tutoringCount = 0;
+			resultSetting();
+		});
 		
 		$("#endorphinReset").on("click", function() {
 			$("#endorphinText").val("");
@@ -658,8 +691,9 @@
 			}
 			
 			if($("#tutoring").is(":checked")) {
-				resultText += "튜터링 " + $("#tutorItem").val() + $("#tutoringMinusPlus").val() + "2 500츄르\n";
-				totalPay += 500;
+				//resultText += "튜터링 " + $("#tutorItem").val() + $("#tutoringMinusPlus").val() + "2 500츄르\n";
+				resultText += "튜터링 " + tutoringCount + $("#tutoringText").val() + " " + (Number(tutoringCount) * 500)+ "츄르\n";
+				totalPay += (Number(tutoringCount) * 500);
 			} 
 
 			if($("#endorphin").is(":checked")) {
@@ -718,7 +752,7 @@
 				totalBuyCount++;
 			}
 			if($("#tutoring").is(":checked")) {
-				totalBuyCount++;
+				totalBuyCount += Number(tutoringCount);
 			}
 			if($("#endorphin").is(":checked")) {
 				totalBuyCount += Number(endorphinCount);
@@ -752,9 +786,15 @@
 				$("#result").text("상점을 너무 많이해서 초기화 시켰음. 갯수 조절 다시 해보세요.\n상점은 총 10개 구매가 가능합니다.");
                 countCheck = false;
 			}
-
+			
+			if(Number(tutoringCount) > 2) {
+				$("#result").text("튜터링을 너무 많이해서 초기화 시켰음. 갯수 조절 다시 해보세요.\n튜터링은 최대 2개 구매가 가능합니다.");
+                countCheck = false;
+			}
+			
             return countCheck;
 		}
+		 
 		
 		function winPop(url, opts) {
    
